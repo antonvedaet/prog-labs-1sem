@@ -1,0 +1,1 @@
+Main-class: Lab1
