@@ -1,7 +1,7 @@
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
         Person ponchik = new Person("Пончик");
         Cash bPonchik = new Balance(50, ponchik);
@@ -10,13 +10,14 @@ public class Main{
         Person piskarik = new Person("Пискарик", true);
         Cash bPiskarik = new Balance(50, piskarik);
         System.out.println(piskarik.toString());
-        //пончик говорит, работает и вертиться на колесе
+        // пончик говорит, работает и вертиться на колесе
         ponchik.talk(piskarik);
         ponchik.work(piskarik);
         try {
             System.out.println(ponchik.recreation(RecreationWays.SPIN_ON_A_WHEEL, bPonchik));
-        } catch (Throwable ex){
-            System.out.println(ex.getMessage());}
+        } catch (Throwable ex) {
+            System.out.println(ex.getMessage());
+        }
 
         Person leshik = new Person("Лещик", true);
         Cash bLeshik = new Balance(50, leshik);
@@ -29,8 +30,8 @@ public class Main{
         Person sudak = new Person("Судачек", true);
         Cash bSudak = new Balance(50, sudak);
         System.out.println(sudak.toString());
-        
-        //знакомство с обществом
+
+        // знакомство с обществом
 
         ponchik.talk(new Crowd("Обществом свободных крутильщиков"));
 
@@ -46,15 +47,16 @@ public class Main{
         map.put(somik, bSomik);
         map.put(sudak, bSudak);
         map.put(ponchik, bPonchik);
-        for (RecreationWays r : RecreationWays.values()){
+        for (RecreationWays r : RecreationWays.values()) {
             Enumeration<Person> e = map.keys();
-            while(e.hasMoreElements()){
-                if(r.getName()!="вертеться на колесе"){
+            while (e.hasMoreElements()) {
+                if (r.getName() != "вертеться на колесе") {
                     Person key = e.nextElement();
                     try {
                         System.out.println(key.recreation(r, map.get(key)));
-                    } catch (Throwable ex){
-                        System.out.println(ex.getMessage());}
+                    } catch (Throwable ex) {
+                        System.out.println(ex.getMessage());
+                    }
                 } else {
                     break;
                 }
